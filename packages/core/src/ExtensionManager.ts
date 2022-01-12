@@ -308,7 +308,7 @@ export class ExtensionManager {
         editor,
         rules: inputRules,
       }),
-      pasteRulesPlugin({
+      ...pasteRulesPlugin({
         editor,
         rules: pasteRules,
       }),
