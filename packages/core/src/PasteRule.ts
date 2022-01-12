@@ -1,4 +1,4 @@
-import { EditorState, Plugin } from 'prosemirror-state'
+import { EditorState, Plugin, PluginKey } from 'prosemirror-state'
 import { Editor } from './Editor'
 import { CommandManager } from './CommandManager'
 import { createChainableState } from './helpers/createChainableState'
@@ -156,6 +156,7 @@ export function pasteRulesPlugin(props: { editor: Editor, rules: PasteRule[] }):
   let isProseMirrorHTML = false
 
   const plugin = new Plugin({
+    key: new PluginKey('pasteRules'),
     props: {
       handlePaste: (view, event) => {
         const html = event.clipboardData?.getData('text/html')

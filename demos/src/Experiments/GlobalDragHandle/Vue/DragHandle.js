@@ -1,5 +1,5 @@
 import { Extension } from '@tiptap/core'
-import { NodeSelection, Plugin } from 'prosemirror-state'
+import { NodeSelection, Plugin, PluginKey } from 'prosemirror-state'
 import { serializeForClipboard } from 'prosemirror-view/src/clipboard'
 
 function removeNode(node) {
@@ -79,6 +79,7 @@ export default Extension.create({
 
     return [
       new Plugin({
+        key: new PluginKey('dargHandle'),
         view(editorView) {
           const element = document.createElement('div')
 

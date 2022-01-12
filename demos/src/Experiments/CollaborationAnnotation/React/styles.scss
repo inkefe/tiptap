@@ -1,0 +1,44 @@
+.ProseMirror {
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  /* Give a remote user a caret */
+  .collaboration-cursor__caret {
+    border-left: 1px solid #0d0d0d;
+    border-right: 1px solid #0d0d0d;
+    margin-left: -1px;
+    margin-right: -1px;
+    pointer-events: none;
+    position: relative;
+    word-break: normal;
+    position: fixed;
+    // top: 2px;
+    height: 14px;
+  }
+
+  /* Render the username above the caret */
+  .collaboration-cursor__label {
+    font-style: normal;
+    font-weight: 600;
+    left: -1px;
+    line-height: normal;
+    position: absolute;
+    top: -14px;
+
+    padding: 2px 8px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+    overflow: hidden;
+    white-space: nowrap !important;
+    user-select: none;
+    z-index: 88;
+  }
+}
+.annotation {
+  border-bottom: 2px solid #ffb948;
+  &.IECD_act {
+    background-color: rgba(250, 211, 136, 0.35) !important;
+  }
+}

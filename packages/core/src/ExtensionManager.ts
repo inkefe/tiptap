@@ -32,7 +32,6 @@ export class ExtensionManager {
     this.editor = editor
     this.extensions = ExtensionManager.resolve(extensions)
     this.schema = getSchemaByResolvedExtensions(this.extensions)
-
     this.extensions.forEach(extension => {
       // store extension storage in editor
       this.editor.extensionStorage[extension.name] = extension.storage
@@ -294,6 +293,9 @@ export class ExtensionManager {
         if (addProseMirrorPlugins) {
           const proseMirrorPlugins = addProseMirrorPlugins()
 
+          if (proseMirrorPlugins[0].key === 'plugin$') {
+            console.log(extension)
+          }
           plugins.push(...proseMirrorPlugins)
         }
 

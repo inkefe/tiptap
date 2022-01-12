@@ -12,6 +12,7 @@ export interface AnnotationStateOptions {
   },
   map: Y.Map<any>,
   instance: string,
+  uid: string,
 }
 
 export class AnnotationState {
@@ -19,13 +20,10 @@ export class AnnotationState {
 
   decorations = DecorationSet.empty
 
+  isCreateFail = false
+
   constructor(options: AnnotationStateOptions) {
     this.options = options
-  }
-
-  randomId() {
-    // TODO: That seems … to simple.
-    return Math.floor(Math.random() * 0xffffffff).toString()
   }
 
   findAnnotation(id: string) {
@@ -41,12 +39,17 @@ export class AnnotationState {
   addAnnotation(action: AddAnnotationAction, state: EditorState) {
     const ystate = ySyncPluginKey.getState(state)
     const { type, binding } = ystate
+
+    console.log(ystate)
     const { map } = this.options
-    const { from, to, data } = action
+    const {
+      from, to, data, id,
+    } = action
     const absoluteFrom = absolutePositionToRelativePosition(from, type, binding.mapping)
     const absoluteTo = absolutePositionToRelativePosition(to, type, binding.mapping)
 
-    map.set(this.randomId(), {
+    console.log('id', id)
+    map.set(id, {
       from: absoluteFrom,
       to: absoluteTo,
       data,
@@ -58,10 +61,12 @@ export class AnnotationState {
 
     const annotation = map.get(action.id)
 
+    console.log('UpdateAnnotationAction', action.id)
+
     map.set(action.id, {
       from: annotation.from,
       to: annotation.to,
-      data: action.data,
+      data: action,
     })
   }
 
@@ -78,20 +83,33 @@ export class AnnotationState {
   }
 
   createDecorations(state: EditorState) {
-    const { map, HTMLAttributes } = this.options
+    const { map, HTMLAttributes: _HTMLAttributes } = this.options
     const ystate = ySyncPluginKey.getState(state)
     const { doc, type, binding } = ystate
+
+    if (!ystate.binding) {
+      this.isCreateFail = true
+      return console.warn(ystate)
+    }
+    this.isCreateFail = false
     const decorations: Decoration[] = []
 
     map.forEach((annotation, id) => {
+      if (binding.mapping?.size === 0) { return }
       const from = relativePositionToAbsolutePosition(doc, type, annotation.from, binding.mapping)
       const to = relativePositionToAbsolutePosition(doc, type, annotation.to, binding.mapping)
 
       if (!from || !to) {
         return
       }
+      const { data } = annotation.data
+      const HTMLAttributes = {
+        class: !data.uid || (+data.uid === +this.options.uid) ? _HTMLAttributes.class : '',
+        'annotation-ids': id,
+      }
 
-      console.log(`[${this.options.instance}] Decoration.inline()`, from, to, HTMLAttributes, { id, data: annotation.data })
+      console.log(data, this.options.uid, _HTMLAttributes, !data.uid || (+data.uid === +this.options.uid))
+      console.log(`[${this.options.instance}] Decoration.inline()`, from, to, annotation, { id, data: annotation.data })
 
       if (from === to) {
         console.warn(`[${this.options.instance}] corrupt decoration `, annotation.from, from, annotation.to, to)
@@ -106,11 +124,15 @@ export class AnnotationState {
   }
 
   apply(transaction: Transaction, state: EditorState) {
+    if (this.isCreateFail) {
+      this.createDecorations(state)
+      return this
+    }
     // Add/Remove annotations
     const action = transaction.getMeta(AnnotationPluginKey) as AddAnnotationAction | UpdateAnnotationAction | DeleteAnnotationAction
 
     if (action && action.type) {
-      console.log(`[${this.options.instance}] action: ${action.type}`)
+      // console.log(`[${this.options.instance}] action: ${action.type}`)
 
       if (action.type === 'addAnnotation') {
         this.addAnnotation(action, state)
@@ -136,16 +158,15 @@ export class AnnotationState {
     const ystate = ySyncPluginKey.getState(state)
 
     if (ystate.isChangeOrigin) {
-      console.log(`[${this.options.instance}] isChangeOrigin: true → createDecorations`)
+      // console.log(`[${this.options.instance}] isChangeOrigin: true → createDecorations`)
       this.createDecorations(state)
 
       return this
     }
 
     // Use ProseMirror to update positions
-    console.log(`[${this.options.instance}] isChangeOrigin: false → ProseMirror mapping`)
+    // console.log(`[${this.options.instance}] isChangeOrigin: false → ProseMirror mapping`)
     this.decorations = this.decorations.map(transaction.mapping, transaction.doc)
-
     return this
   }
 }

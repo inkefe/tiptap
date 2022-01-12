@@ -106,6 +106,7 @@ export default defineConfig({
                   </head>
                   <body>
                     <div id="app"></div>
+                    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     <script type="module">
                       import setup from '../../../../setup/react.ts'
                       import source from '@source'
@@ -249,6 +250,9 @@ export default defineConfig({
     alias: [
       ...fg.sync('../packages/*', { onlyDirectories: true })
         .map(name => name.replace('../packages/', ''))
+        // .filter(
+        //   name => ['react', 'starter-kit', 'extension-collaboration'].indexOf(name) < 0,
+        // )
         .map(name => {
           return { find: `@tiptap/${name}`, replacement: resolve(`../packages/${name}/src/index.ts`) }
         }),

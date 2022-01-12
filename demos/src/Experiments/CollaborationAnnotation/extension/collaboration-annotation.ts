@@ -7,6 +7,7 @@ export interface AddAnnotationAction {
   data: any,
   from: number,
   to: number,
+  id: string,
 }
 
 export interface UpdateAnnotationAction {
@@ -41,9 +42,11 @@ export interface AnnotationOptions {
    */
   map: Y.Map<any> | null,
   instance: string,
+  uid: string,
 }
 
 function getMapFromOptions(options: AnnotationOptions): Y.Map<any> {
+  console.log('getMapFromOptions', options)
   return options.map
     ? options.map
     : options.document?.getMap(options.field) as Y.Map<any>
@@ -62,13 +65,15 @@ declare module '@tiptap/core' {
 export const CollaborationAnnotation = Extension.create<AnnotationOptions>({
   name: 'annotation',
 
-  priority: 1000,
+  priority: 500,
 
   addOptions() {
     return {
       HTMLAttributes: {
         class: 'annotation',
+        'annotation-ids': '',
       },
+      uid: '',
       onUpdate: decorations => decorations,
       document: null,
       field: 'annotations',
@@ -80,6 +85,7 @@ export const CollaborationAnnotation = Extension.create<AnnotationOptions>({
   onCreate() {
     const map = getMapFromOptions(this.options)
 
+    console.log(map.toJSON(), 'onCreate')
     map.observe(() => {
       console.log(`[${this.options.instance}] map updated  → createDecorations`)
 
@@ -93,18 +99,20 @@ export const CollaborationAnnotation = Extension.create<AnnotationOptions>({
 
   addCommands() {
     return {
-      addAnnotation: (data: any) => ({ dispatch, state }) => {
+      addAnnotation: data => ({ dispatch, state }) => {
         const { selection } = state
 
         if (selection.empty) {
           return false
         }
+        // const { uid, text } = data || {}
 
         if (dispatch && data) {
           state.tr.setMeta(AnnotationPluginKey, <AddAnnotationAction>{
             type: 'addAnnotation',
-            from: selection.from,
-            to: selection.to,
+            from: data.from,
+            to: data.to,
+            id: data.id,
             data,
           })
         }
@@ -142,6 +150,7 @@ export const CollaborationAnnotation = Extension.create<AnnotationOptions>({
         onUpdate: this.options.onUpdate,
         map: getMapFromOptions(this.options),
         instance: this.options.instance,
+        uid: this.options.uid,
       }),
     ]
   },

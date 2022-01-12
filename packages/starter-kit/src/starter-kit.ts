@@ -70,11 +70,11 @@ export const StarterKit = Extension.create<StarterKitOptions>({
     }
 
     if (this.options.dropcursor !== false) {
-      extensions.push(Dropcursor.configure(this.options?.dropcursor))
+      // extensions.push(Dropcursor.configure(this.options?.dropcursor))
     }
 
     if (this.options.gapcursor !== false) {
-      extensions.push(Gapcursor.configure(this.options?.gapcursor))
+      // extensions.push(Gapcursor.configure(this.options?.gapcursor))
     }
 
     if (this.options.hardBreak !== false) {

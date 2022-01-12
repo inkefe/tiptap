@@ -1,5 +1,5 @@
 import { Node, mergeAttributes } from '@tiptap/core'
-import { Plugin } from 'prosemirror-state'
+import { Plugin, PluginKey } from 'prosemirror-state'
 
 export const Figure = Node.create({
   name: 'figure',
@@ -33,6 +33,7 @@ export const Figure = Node.create({
   addProseMirrorPlugins() {
     return [
       new Plugin({
+        key: new PluginKey('figure'),
         props: {
           handleDOMEvents: {
             // prevent dragging nodes out of the figure

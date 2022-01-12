@@ -1,4 +1,6 @@
-import { EditorState, Plugin, TextSelection } from 'prosemirror-state'
+import {
+  EditorState, Plugin, PluginKey, TextSelection,
+} from 'prosemirror-state'
 import { Editor } from './Editor'
 import { CommandManager } from './CommandManager'
 import { createChainableState } from './helpers/createChainableState'
@@ -186,6 +188,7 @@ function run(config: {
 export function inputRulesPlugin(props: { editor: Editor, rules: InputRule[] }): Plugin {
   const { editor, rules } = props
   const plugin = new Plugin({
+    key: new PluginKey('inputRules'),
     state: {
       init() {
         return null
