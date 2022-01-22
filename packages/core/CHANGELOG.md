@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.166](https://github.com/ueberdosis/tiptap/compare/@tiptap/core@2.0.0-beta.165...@tiptap/core@2.0.0-beta.166) (2022-01-20)
+
+
+### Bug Fixes
+
+* insertContent keeps marks when using plain text, fix [#2406](https://github.com/ueberdosis/tiptap/issues/2406) ([d242706](https://github.com/ueberdosis/tiptap/commit/d2427064ff1765004173f3c718cd1e4eba4dc355))
+
+
+
+
+
+# [2.0.0-beta.165](https://github.com/ueberdosis/tiptap/compare/@tiptap/core@2.0.0-beta.164...@tiptap/core@2.0.0-beta.165) (2022-01-20)
+
+
+### Bug Fixes
+
+* fix removing the caret on blur in some situations when using safari, fix [#2405](https://github.com/ueberdosis/tiptap/issues/2405) ([9d31712](https://github.com/ueberdosis/tiptap/commit/9d317128a08a66f18c4d51385b6a9fccc5cd66f4))
+
+
+
+
+
+# [2.0.0-beta.164](https://github.com/ueberdosis/tiptap/compare/@tiptap/core@2.0.0-beta.163...@tiptap/core@2.0.0-beta.164) (2022-01-20)
+
+
+### Bug Fixes
+
+* run pasterules for pasted content, fix [#2408](https://github.com/ueberdosis/tiptap/issues/2408) ([bc03c0d](https://github.com/ueberdosis/tiptap/commit/bc03c0d77812376f910accba1fb130c751ea7f0d))
+
+
+
+
+
 # [2.0.0-beta.163](https://github.com/ueberdosis/tiptap/compare/@tiptap/core@2.0.0-beta.162...@tiptap/core@2.0.0-beta.163) (2022-01-13)
 
 
