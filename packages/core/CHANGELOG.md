@@ -3,6 +3,80 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.174](https://github.com/ueberdosis/tiptap/compare/@tiptap/core@2.0.0-beta.173...@tiptap/core@2.0.0-beta.174) (2022-02-07)
+
+
+### Bug Fixes
+
+* revert changes to selectAll command, fix [#2491](https://github.com/ueberdosis/tiptap/issues/2491) ([bdab760](https://github.com/ueberdosis/tiptap/commit/bdab760cdbf89da7a56dcc1a183010974d2e1290))
+
+
+
+
+
+# [2.0.0-beta.173](https://github.com/ueberdosis/tiptap/compare/@tiptap/core@2.0.0-beta.172...@tiptap/core@2.0.0-beta.173) (2022-02-07)
+
+
+### Bug Fixes
+
+* fix RangeError bug when selecting all text, fix [#2490](https://github.com/ueberdosis/tiptap/issues/2490) ([70422dd](https://github.com/ueberdosis/tiptap/commit/70422dd107ed1ecdd8dfe41a8a93297124d2f1e0))
+
+
+
+
+
+# [2.0.0-beta.172](https://github.com/ueberdosis/tiptap/compare/@tiptap/core@2.0.0-beta.171...@tiptap/core@2.0.0-beta.172) (2022-02-03)
+
+
+### Bug Fixes
+
+* don’t add tabindex when readonly, fix [#2458](https://github.com/ueberdosis/tiptap/issues/2458) ([01411f8](https://github.com/ueberdosis/tiptap/commit/01411f8462e8a36f96e56cdba227a9e5bb3e1812))
+
+
+
+
+
+# [2.0.0-beta.171](https://github.com/ueberdosis/tiptap/compare/@tiptap/core@2.0.0-beta.170...@tiptap/core@2.0.0-beta.171) (2022-01-28)
+
+**Note:** Version bump only for package @tiptap/core
+
+
+
+
+
+# [2.0.0-beta.170](https://github.com/ueberdosis/tiptap/compare/@tiptap/core@2.0.0-beta.169...@tiptap/core@2.0.0-beta.170) (2022-01-27)
+
+
+### Bug Fixes
+
+* set max textselection correctly, fix [#2401](https://github.com/ueberdosis/tiptap/issues/2401) ([4be16fc](https://github.com/ueberdosis/tiptap/commit/4be16fcd2e6c107e59679eebf1ea1d6112a88afb))
+
+
+
+
+
+# [2.0.0-beta.169](https://github.com/ueberdosis/tiptap/compare/@tiptap/core@2.0.0-beta.168...@tiptap/core@2.0.0-beta.169) (2022-01-27)
+
+
+### Bug Fixes
+
+* fix End key handler, fix [#2446](https://github.com/ueberdosis/tiptap/issues/2446) ([b584920](https://github.com/ueberdosis/tiptap/commit/b584920ea172bc9f5207b8d03cb2b7f80925a5be))
+
+
+
+
+
+# [2.0.0-beta.168](https://github.com/ueberdosis/tiptap/compare/@tiptap/core@2.0.0-beta.167...@tiptap/core@2.0.0-beta.168) (2022-01-26)
+
+
+### Bug Fixes
+
+* add attributes to pre tag instead of code tag by default, fix [#2440](https://github.com/ueberdosis/tiptap/issues/2440) ([85fcc29](https://github.com/ueberdosis/tiptap/commit/85fcc29ac6ef9e07847d5e0a5cdd318f4300a832))
+
+
+
+
+
 # [2.0.0-beta.167](https://github.com/ueberdosis/tiptap/compare/@tiptap/core@2.0.0-beta.166...@tiptap/core@2.0.0-beta.167) (2022-01-25)
 
 
