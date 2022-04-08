@@ -97,6 +97,10 @@ export const CollaborationAnnotation = Extension.create<AnnotationOptions>({
     })
   },
 
+  onUpdate(...args) {
+    console.log(args, map)
+  },
+
   addCommands() {
     return {
       addAnnotation: data => ({ dispatch, state }) => {

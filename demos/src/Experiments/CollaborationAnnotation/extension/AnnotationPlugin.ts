@@ -25,6 +25,7 @@ export const AnnotationPlugin = (options: AnnotationPluginOptions) => new Plugin
         map: options.map,
         instance: options.instance,
         uid: options.uid,
+        onUpdate: options.onUpdate,
       })
     },
     apply(transaction, pluginState, oldState, newState) {
@@ -33,19 +34,28 @@ export const AnnotationPlugin = (options: AnnotationPluginOptions) => new Plugin
   },
 
   props: {
+    // handleClick(view, pos, event) {
+    //   console.log('click', event.target)
+    //   return true
+    // },
     decorations(state) {
-      const { decorations } = this.getState(state)
+      const annotationState = this.getState(state)
+
+      // console.log(state, annotationState)
+      const { decorations } = annotationState
       const { selection } = state
 
       if (!selection.empty) {
         return decorations
       }
 
-      const annotations = this
-        .getState(state)
-        .annotationsAt(selection.from).filter((an: AnnotationItem) => {
-          return !an.data.data.uid || +an.data.data.uid === +options.uid
-        })
+      // check
+      // console.log(decorations, options.map)
+
+      const annotations = this.getState(state).annotationsAt(selection.from).filter((an: AnnotationItem) => {
+        if (selection.from === an.to || selection.from === an.from) { return false }
+        return !an.data.data.uid || +an.data.data.uid === +options.uid
+      })
 
       options.onUpdate(annotations)
       return decorations
