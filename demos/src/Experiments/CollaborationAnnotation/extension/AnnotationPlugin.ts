@@ -1,5 +1,6 @@
-import * as Y from 'yjs'
 import { Plugin, PluginKey } from 'prosemirror-state'
+import * as Y from 'yjs'
+
 import { AnnotationState } from './AnnotationState'
 import { AnnotationItem } from './AnnotationItem'
 

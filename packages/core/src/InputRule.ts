@@ -1,17 +1,16 @@
-import {
-  EditorState, Plugin, PluginKey, TextSelection,
-} from 'prosemirror-state'
-import { Editor } from './Editor'
+import { EditorState, Plugin, TextSelection } from 'prosemirror-state'
+
 import { CommandManager } from './CommandManager'
 import { createChainableState } from './helpers/createChainableState'
-import { isRegExp } from './utilities/isRegExp'
+import { getTextContentFromNodes } from './helpers/getTextContentFromNodes'
 import {
-  Range,
-  ExtendedRegExpMatchArray,
-  SingleCommands,
-  ChainedCommands,
   CanCommands,
+  ChainedCommands,
+  ExtendedRegExpMatchArray,
+  Range,
+  SingleCommands,
 } from './types'
+import { isRegExp } from './utilities/isRegExp'
 
 export type InputRuleMatch = {
   index: number,
@@ -116,13 +115,8 @@ function run(config: {
   }
 
   let matched = false
-  const maxMatch = 500
-  const textBefore = $from.parent.textBetween(
-    Math.max(0, $from.parentOffset - maxMatch),
-    $from.parentOffset,
-    undefined,
-    ' ',
-  ) + text
+
+  const textBefore = getTextContentFromNodes($from) + text
 
   rules.forEach(rule => {
     if (matched) {
@@ -194,7 +188,7 @@ export function inputRulesPlugin(props: { editor: Editor, rules: InputRule[] }):
         return null
       },
       apply(tr, prev) {
-        const stored = tr.getMeta(this)
+        const stored = tr.getMeta(plugin)
 
         if (stored) {
           return stored

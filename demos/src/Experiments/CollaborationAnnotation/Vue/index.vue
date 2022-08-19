@@ -4,11 +4,11 @@
       <h2>
         Original Editor
       </h2>
-      <!-- <button @click="addComment" :disabled="!editor.can().addAnnotation()">
+      <button @click="addComment" :disabled="!editor.can().addAnnotation()">
         comment
-      </button> -->
-      <editor-content :editor="editor" />
-      <div v-for="comment in comments" :key="comment.id">
+      </button>
+      <editor-content class="editor-1" :editor="editor" />
+      <div class="comment" v-for="comment in comments" :key="comment.id">
         {{ comment }}
 
         <button @click="updateComment(comment.id)">
@@ -23,25 +23,25 @@
       <h2>
         Another Editor
       </h2>
-      <!-- <button @click="addAnotherComment" :disabled="!anotherEditor.can().addAnnotation()">
+      <button @click="addAnotherComment" :disabled="!anotherEditor.can().addAnnotation()">
         comment
-      </button> -->
-      <editor-content :editor="anotherEditor" />
+      </button>
+      <editor-content class="editor-2" :editor="anotherEditor" />
     </div>
   </div>
 </template>
 
 <script>
-import { Editor, EditorContent } from '@tiptap/vue-3'
-// import Document from '@tiptap/extension-document'
-// import Paragraph from '@tiptap/extension-paragraph'
-// import Text from '@tiptap/extension-text'
+import Bold from '@tiptap/extension-bold'
 import Collaboration from '@tiptap/extension-collaboration'
-// import Bold from '@tiptap/extension-bold'
-// import Heading from '@tiptap/extension-heading'
-import StarterKit from '@tiptap/starter-kit'
+import Document from '@tiptap/extension-document'
+import Heading from '@tiptap/extension-heading'
+import Paragraph from '@tiptap/extension-paragraph'
+import Text from '@tiptap/extension-text'
+import { Editor, EditorContent } from '@tiptap/vue-3'
 import * as Y from 'yjs'
-import CollaborationAnnotation from '../extension'
+
+import CollaborationAnnotation from './extension'
 
 export default {
   components: {
@@ -53,18 +53,26 @@ export default {
       editor: null,
       anotherEditor: null,
       comments: [],
-      ydoc: new Y.Doc(),
     }
   },
 
   mounted() {
-    this.ydoc = new Y.Doc()
+    const ydoc = new Y.Doc()
 
     this.editor = new Editor({
       extensions: [
-        StarterKit.configure({
-          gapcursor: false,
-          history: false,
+        Document,
+        Paragraph,
+        Text,
+        Bold,
+        Heading,
+        CollaborationAnnotation.configure({
+          document: ydoc,
+          onUpdate: items => { this.comments = items },
+          instance: 'editor1',
+        }),
+        Collaboration.configure({
+          document: ydoc,
         }),
         // Collaboration.configure({
         //   document: this.ydoc,
@@ -88,9 +96,17 @@ export default {
 
     this.anotherEditor = new Editor({
       extensions: [
-        StarterKit.configure({
-          gapcursor: false,
-          history: false,
+        Document,
+        Paragraph,
+        Text,
+        Bold,
+        Heading,
+        CollaborationAnnotation.configure({
+          document: ydoc,
+          instance: 'editor2',
+        }),
+        Collaboration.configure({
+          document: ydoc,
         }),
         // CollaborationAnnotation.configure({
         //   document: this.ydoc,

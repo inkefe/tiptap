@@ -1,10 +1,11 @@
-import * as Y from 'yjs'
 import { EditorState, Transaction } from 'prosemirror-state'
 import { Decoration, DecorationSet } from 'prosemirror-view'
-import { ySyncPluginKey, relativePositionToAbsolutePosition, absolutePositionToRelativePosition } from 'y-prosemirror'
-import { AddAnnotationAction, DeleteAnnotationAction, UpdateAnnotationAction } from './collaboration-annotation'
-import { AnnotationPluginKey } from './AnnotationPlugin'
+import { absolutePositionToRelativePosition, relativePositionToAbsolutePosition, ySyncPluginKey } from 'y-prosemirror'
+import * as Y from 'yjs'
+
 import { AnnotationItem } from './AnnotationItem'
+import { AnnotationPluginKey } from './AnnotationPlugin'
+import { AddAnnotationAction, DeleteAnnotationAction, UpdateAnnotationAction } from './collaboration-annotation'
 
 // const renderAnnotation = () => {}
 

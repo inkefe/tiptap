@@ -42,7 +42,7 @@ export const Placeholder = Extension.create<PlaceholderOptions>({
             const decorations: Decoration[] = []
 
             if (!active) {
-              return
+              return null
             }
 
             doc.descendants((node, pos) => {
