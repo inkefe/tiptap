@@ -3,7 +3,7 @@ import { Node as ProsemirrorNode, Schema } from 'prosemirror-model'
 import { Plugin } from 'prosemirror-state'
 import { Decoration, EditorView } from 'prosemirror-view'
 
-import { NodeConfig } from '.'
+import { Mark, NodeConfig } from '.'
 import { Editor } from './Editor'
 import { getAttributesFromExtensions } from './helpers/getAttributesFromExtensions'
 import { getExtensionField } from './helpers/getExtensionField'
@@ -251,6 +251,13 @@ export class ExtensionManager {
           context,
         )
 
+        let defaultBindings: Record<string, () => boolean> = {}
+
+        // bind exit handling
+        if (extension.type === 'mark' && extension.config.exitable) {
+          defaultBindings.ArrowRight = () => Mark.handleExit({ editor, mark: (extension as Mark) })
+        }
+
         if (addKeyboardShortcuts) {
           const bindings = Object.fromEntries(
             Object
@@ -260,10 +267,12 @@ export class ExtensionManager {
               }),
           )
 
-          const keyMapPlugin = keymap(bindings)
-
-          plugins.push(keyMapPlugin)
+          defaultBindings = { ...defaultBindings, ...bindings }
         }
+
+        const keyMapPlugin = keymap(defaultBindings)
+
+        plugins.push(keyMapPlugin)
 
         const addInputRules = getExtensionField<AnyConfig['addInputRules']>(
           extension,
