@@ -55,10 +55,18 @@ export class BubbleMenuView {
     const isEmptyTextBlock = !doc.textBetween(from, to).length
       && isTextSelection(state.selection)
 
+    // When clicking on a element inside the bubble menu the editor "blur" event
+    // is called and the bubble menu item is focussed. In this case we should
+    // consider the menu as part of the ditor and keep showing the menu
+    const isChildOfMenu = this.element.contains(document.activeElement)
+
+    const hasEditorFocus = view.hasFocus() || isChildOfMenu
+
     if (
-      !view.hasFocus()
+      !hasEditorFocus
       || empty
       || isEmptyTextBlock
+      || !this.editor.isEditable
     ) {
       return false
     }
