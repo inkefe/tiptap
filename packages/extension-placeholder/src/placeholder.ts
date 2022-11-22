@@ -45,6 +45,10 @@ export const Placeholder = Extension.create<PlaceholderOptions>({
               return null
             }
 
+            // only calculate isEmpty once due to its performance impacts (see issue #3360)
+            const emptyDocInstance = doc.type.createAndFill()
+            const isEditorEmpty = emptyDocInstance?.sameMarkup(doc) && emptyDocInstance.content.findDiffStart(doc.content) === null
+
             doc.descendants((node, pos) => {
               const hasAnchor = anchor >= pos && anchor <= (pos + node.nodeSize)
               const isEmpty = !node.isLeaf && !node.childCount
@@ -52,7 +56,7 @@ export const Placeholder = Extension.create<PlaceholderOptions>({
               if ((hasAnchor || !this.options.showOnlyCurrent) && isEmpty) {
                 const classes = [this.options.emptyNodeClass]
 
-                if (this.editor.isEmpty) {
+                if (isEditorEmpty) {
                   classes.push(this.options.emptyEditorClass)
                 }
 
