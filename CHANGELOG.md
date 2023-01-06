@@ -3,6 +3,84 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.209](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.208...v2.0.0-beta.209) (2022-12-16)
+
+**Note:** Version bump only for package tiptap
+
+
+
+
+
+# [2.0.0-beta.208](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.207...v2.0.0-beta.208) (2022-12-16)
+
+**Note:** Version bump only for package tiptap
+
+
+
+
+
+# [2.0.0-beta.207](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.206...v2.0.0-beta.207) (2022-12-08)
+
+
+### Bug Fixes
+
+* **extension-table:** add prosemirror-tables to peerDependencies ([c187e0e](https://github.com/ueberdosis/tiptap/commit/c187e0e2586f1d0069e93ab41a144ae14d5172e0))
+
+
+
+
+
+# [2.0.0-beta.206](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.205...v2.0.0-beta.206) (2022-12-08)
+
+
+### Bug Fixes
+
+* **extension-bubble-menu:** don't debounce without valid selection ([#3501](https://github.com/ueberdosis/tiptap/issues/3501)) ([e9d9d88](https://github.com/ueberdosis/tiptap/commit/e9d9d8851189f936b01db7ec41fef4f4c5021761))
+
+
+
+
+
+# [2.0.0-beta.205](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.204...v2.0.0-beta.205) (2022-12-05)
+
+
+### Bug Fixes
+
+* **core:** implement deleteCurrentNode command & fix node joining on Delete key ([#3192](https://github.com/ueberdosis/tiptap/issues/3192)) ([ef8a1a2](https://github.com/ueberdosis/tiptap/commit/ef8a1a2f3d94f60cbdb73f03179b89ece0539560))
+* **link:** allow to unset target attribute ([#3425](https://github.com/ueberdosis/tiptap/issues/3425)) ([1c3568d](https://github.com/ueberdosis/tiptap/commit/1c3568dcd978a7eb784cde69d4e9962f612cbe35)), closes [#3276](https://github.com/ueberdosis/tiptap/issues/3276)
+
+
+### Features
+
+* **commands:** add joinUp and joinDown command ([#3455](https://github.com/ueberdosis/tiptap/issues/3455)) ([343ce75](https://github.com/ueberdosis/tiptap/commit/343ce756a8e0efccadddcd05d5a1b414135d009a))
+
+
+
+
+
+# [2.0.0-beta.204](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.203...v2.0.0-beta.204) (2022-11-25)
+
+
+### Bug Fixes
+
+* **core:** rename esm modules to esm.js ([c1a0c3a](https://github.com/ueberdosis/tiptap/commit/c1a0c3ae43baac9dd5ed90903d3a0d4eaeea7702))
+* **tests:** fix autolink validation test ([5150095](https://github.com/ueberdosis/tiptap/commit/5150095c6b510c080f4aa35f54d2387543f86da8))
+
+
+
+
+
+# [2.0.0-beta.203](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.202...v2.0.0-beta.203) (2022-11-24)
+
+
+### Bug Fixes
+
+* **extension/table:** move dependency from @_ueberdosis to [@tiptap](https://github.com/tiptap) ([#3448](https://github.com/ueberdosis/tiptap/issues/3448)) ([31c3a9a](https://github.com/ueberdosis/tiptap/commit/31c3a9aad9eb37f445eadcd27135611291178ca6))
+
+
+
+
+
 # [2.0.0-beta.202](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.201...v2.0.0-beta.202) (2022-11-04)
 
 **Note:** Version bump only for package tiptap

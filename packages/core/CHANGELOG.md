@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.209](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.208...v2.0.0-beta.209) (2022-12-16)
+
+**Note:** Version bump only for package @tiptap/core
+
+
+
+
+
+# [2.0.0-beta.208](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.207...v2.0.0-beta.208) (2022-12-16)
+
+**Note:** Version bump only for package @tiptap/core
+
+
+
+
+
+# [2.0.0-beta.207](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.206...v2.0.0-beta.207) (2022-12-08)
+
+**Note:** Version bump only for package @tiptap/core
+
+
+
+
+
+# [2.0.0-beta.206](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.205...v2.0.0-beta.206) (2022-12-08)
+
+**Note:** Version bump only for package @tiptap/core
+
+
+
+
+
+# [2.0.0-beta.205](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.204...v2.0.0-beta.205) (2022-12-05)
+
+
+### Bug Fixes
+
+* **core:** implement deleteCurrentNode command & fix node joining on Delete key ([#3192](https://github.com/ueberdosis/tiptap/issues/3192)) ([ef8a1a2](https://github.com/ueberdosis/tiptap/commit/ef8a1a2f3d94f60cbdb73f03179b89ece0539560))
+
+
+### Features
+
+* **commands:** add joinUp and joinDown command ([#3455](https://github.com/ueberdosis/tiptap/issues/3455)) ([343ce75](https://github.com/ueberdosis/tiptap/commit/343ce756a8e0efccadddcd05d5a1b414135d009a))
+
+
+
+
+
+# [2.0.0-beta.204](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.203...v2.0.0-beta.204) (2022-11-25)
+
+
+### Bug Fixes
+
+* **core:** rename esm modules to esm.js ([c1a0c3a](https://github.com/ueberdosis/tiptap/commit/c1a0c3ae43baac9dd5ed90903d3a0d4eaeea7702))
+
+
+
+
+
+# [2.0.0-beta.203](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.202...v2.0.0-beta.203) (2022-11-24)
+
+**Note:** Version bump only for package @tiptap/core
+
+
+
+
+
 # [2.0.0-beta.202](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.201...v2.0.0-beta.202) (2022-11-04)
 
 **Note:** Version bump only for package @tiptap/core

@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.209](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.208...v2.0.0-beta.209) (2022-12-16)
+
+**Note:** Version bump only for package @tiptap/extension-bubble-menu
+
+
+
+
+
+# [2.0.0-beta.208](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.207...v2.0.0-beta.208) (2022-12-16)
+
+**Note:** Version bump only for package @tiptap/extension-bubble-menu
+
+
+
+
+
+# [2.0.0-beta.207](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.206...v2.0.0-beta.207) (2022-12-08)
+
+**Note:** Version bump only for package @tiptap/extension-bubble-menu
+
+
+
+
+
+# [2.0.0-beta.206](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.205...v2.0.0-beta.206) (2022-12-08)
+
+
+### Bug Fixes
+
+* **extension-bubble-menu:** don't debounce without valid selection ([#3501](https://github.com/ueberdosis/tiptap/issues/3501)) ([e9d9d88](https://github.com/ueberdosis/tiptap/commit/e9d9d8851189f936b01db7ec41fef4f4c5021761))
+
+
+
+
+
+# [2.0.0-beta.205](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.204...v2.0.0-beta.205) (2022-12-05)
+
+**Note:** Version bump only for package @tiptap/extension-bubble-menu
+
+
+
+
+
+# [2.0.0-beta.204](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.203...v2.0.0-beta.204) (2022-11-25)
+
+
+### Bug Fixes
+
+* **core:** rename esm modules to esm.js ([c1a0c3a](https://github.com/ueberdosis/tiptap/commit/c1a0c3ae43baac9dd5ed90903d3a0d4eaeea7702))
+
+
+
+
+
+# [2.0.0-beta.203](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.202...v2.0.0-beta.203) (2022-11-24)
+
+**Note:** Version bump only for package @tiptap/extension-bubble-menu
+
+
+
+
+
 # [2.0.0-beta.202](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.201...v2.0.0-beta.202) (2022-11-04)
 
 **Note:** Version bump only for package @tiptap/extension-bubble-menu
