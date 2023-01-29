@@ -1,6 +1,9 @@
-import { EditorState, Plugin, TextSelection } from 'prosemirror-state'
+import {
+  EditorState, Plugin, PluginKey, TextSelection,
+} from 'prosemirror-state'
 
 import { CommandManager } from './CommandManager'
+import { Editor } from './Editor'
 import { createChainableState } from './helpers/createChainableState'
 import { getTextContentFromNodes } from './helpers/getTextContentFromNodes'
 import {
@@ -63,9 +66,8 @@ const inputRuleMatcherHandler = (text: string, find: InputRuleFinder): ExtendedR
     return null
   }
 
-  const result: ExtendedRegExpMatchArray = []
+  const result: ExtendedRegExpMatchArray = [inputRuleMatch.text]
 
-  result.push(inputRuleMatch.text)
   result.index = inputRuleMatch.index
   result.input = text
   result.data = inputRuleMatch.data

@@ -1,5 +1,5 @@
 import { EditorState, Plugin, PluginKey } from 'prosemirror-state'
-import { Editor } from './Editor'
+
 import { CommandManager } from './CommandManager'
 import { Editor } from './Editor'
 import { createChainableState } from './helpers/createChainableState'
@@ -65,9 +65,8 @@ const pasteRuleMatcherHandler = (text: string, find: PasteRuleFinder): ExtendedR
   }
 
   return matches.map(pasteRuleMatch => {
-    const result: ExtendedRegExpMatchArray = []
+    const result: ExtendedRegExpMatchArray = [pasteRuleMatch.text]
 
-    result.push(pasteRuleMatch.text)
     result.index = pasteRuleMatch.index
     result.input = text
     result.data = pasteRuleMatch.data
