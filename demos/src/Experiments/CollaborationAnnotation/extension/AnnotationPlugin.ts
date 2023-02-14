@@ -1,8 +1,8 @@
-import { Plugin, PluginKey } from 'prosemirror-state'
+import { Plugin, PluginKey } from '@tiptap/pm/state'
 import * as Y from 'yjs'
 
-import { AnnotationState } from './AnnotationState'
 import { AnnotationItem } from './AnnotationItem'
+import { AnnotationState } from './AnnotationState'
 
 export const AnnotationPluginKey = new PluginKey('annotation')
 // console.log(AnnotationPluginKey)

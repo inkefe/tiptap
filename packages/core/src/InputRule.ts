@@ -1,6 +1,6 @@
 import {
   EditorState, Plugin, PluginKey, TextSelection,
-} from 'prosemirror-state'
+} from '@tiptap/pm/state'
 
 import { CommandManager } from './CommandManager'
 import { Editor } from './Editor'
@@ -16,46 +16,47 @@ import {
 import { isRegExp } from './utilities/isRegExp'
 
 export type InputRuleMatch = {
-  index: number,
-  text: string,
-  replaceWith?: string,
-  match?: RegExpMatchArray,
-  data?: Record<string, any>,
+  index: number
+  text: string
+  replaceWith?: string
+  match?: RegExpMatchArray
+  data?: Record<string, any>
 }
 
-export type InputRuleFinder =
-  | RegExp
-  | ((text: string) => InputRuleMatch | null)
+export type InputRuleFinder = RegExp | ((text: string) => InputRuleMatch | null)
 
 export class InputRule {
   find: InputRuleFinder
 
   handler: (props: {
-    state: EditorState,
-    range: Range,
-    match: ExtendedRegExpMatchArray,
-    commands: SingleCommands,
-    chain: () => ChainedCommands,
-    can: () => CanCommands,
+    state: EditorState
+    range: Range
+    match: ExtendedRegExpMatchArray
+    commands: SingleCommands
+    chain: () => ChainedCommands
+    can: () => CanCommands
   }) => void | null
 
   constructor(config: {
-    find: InputRuleFinder,
+    find: InputRuleFinder
     handler: (props: {
-      state: EditorState,
-      range: Range,
-      match: ExtendedRegExpMatchArray,
-      commands: SingleCommands,
-      chain: () => ChainedCommands,
-      can: () => CanCommands,
-    }) => void | null,
+      state: EditorState
+      range: Range
+      match: ExtendedRegExpMatchArray
+      commands: SingleCommands
+      chain: () => ChainedCommands
+      can: () => CanCommands
+    }) => void | null
   }) {
     this.find = config.find
     this.handler = config.handler
   }
 }
 
-const inputRuleMatcherHandler = (text: string, find: InputRuleFinder): ExtendedRegExpMatchArray | null => {
+const inputRuleMatcherHandler = (
+  text: string,
+  find: InputRuleFinder,
+): ExtendedRegExpMatchArray | null => {
   if (isRegExp(find)) {
     return find.exec(text)
   }
@@ -74,7 +75,9 @@ const inputRuleMatcherHandler = (text: string, find: InputRuleFinder): ExtendedR
 
   if (inputRuleMatch.replaceWith) {
     if (!inputRuleMatch.text.includes(inputRuleMatch.replaceWith)) {
-      console.warn('[tiptap warn]: "inputRuleMatch.replaceWith" must be part of "inputRuleMatch.text".')
+      console.warn(
+        '[tiptap warn]: "inputRuleMatch.replaceWith" must be part of "inputRuleMatch.text".',
+      )
     }
 
     result.push(inputRuleMatch.replaceWith)
@@ -84,20 +87,15 @@ const inputRuleMatcherHandler = (text: string, find: InputRuleFinder): ExtendedR
 }
 
 function run(config: {
-  editor: Editor,
-  from: number,
-  to: number,
-  text: string,
-  rules: InputRule[],
-  plugin: Plugin,
+  editor: Editor
+  from: number
+  to: number
+  text: string
+  rules: InputRule[]
+  plugin: Plugin
 }): boolean {
   const {
-    editor,
-    from,
-    to,
-    text,
-    rules,
-    plugin,
+    editor, from, to, text, rules, plugin,
   } = config
   const { view } = editor
 
@@ -181,7 +179,7 @@ function run(config: {
  * input that matches any of the given rules to trigger the rule’s
  * action.
  */
-export function inputRulesPlugin(props: { editor: Editor, rules: InputRule[] }): Plugin {
+export function inputRulesPlugin(props: { editor: Editor; rules: InputRule[] }): Plugin {
   const { editor, rules } = props
   const plugin = new Plugin({
     key: new PluginKey('inputRules'),
@@ -196,9 +194,7 @@ export function inputRulesPlugin(props: { editor: Editor, rules: InputRule[] }):
           return stored
         }
 
-        return tr.selectionSet || tr.docChanged
-          ? null
-          : prev
+        return tr.selectionSet || tr.docChanged ? null : prev
       },
     },
 
