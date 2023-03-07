@@ -1,4 +1,5 @@
 import {
+  DecorationWithType,
   NodeView,
   NodeViewProps,
   NodeViewRenderer,
@@ -25,6 +26,7 @@ export interface ReactNodeViewRendererOptions extends NodeViewRendererOptions {
     | null
   as?: string
   className?: string
+  attrs?: Record<string, string>
 }
 
 class ReactNodeView extends NodeView<
@@ -102,6 +104,7 @@ class ReactNodeView extends NodeView<
       props,
       as,
       className: `node-${this.node.type.name} ${className}`.trim(),
+      attrs: this.options.attrs,
     })
   }
 
@@ -124,7 +127,7 @@ class ReactNodeView extends NodeView<
     return this.contentDOMElement
   }
 
-  update(node: ProseMirrorNode, decorations: Decoration[]) {
+  update(node: ProseMirrorNode, decorations: DecorationWithType[]) {
     const updateProps = (props?: Record<string, any>) => {
       this.renderer.updateProps(props)
     }

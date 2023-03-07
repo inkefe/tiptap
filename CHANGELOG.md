@@ -3,6 +3,106 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.220](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.219...v2.0.0-beta.220) (2023-02-28)
+
+
+### Bug Fixes
+
+* **core:**  fix destroyed view causing errors on dispatchTransaction ([#3799](https://github.com/ueberdosis/tiptap/issues/3799)) ([3c07ca0](https://github.com/ueberdosis/tiptap/commit/3c07ca0b9c48cef60d56acdd44812e20e05fc928))
+* **tests:** fix tests for lists ([02eec8a](https://github.com/ueberdosis/tiptap/commit/02eec8aaefc2709dc20f91c3c8f9eca84cddc12d))
+
+
+
+
+
+# [2.0.0-beta.219](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.218...v2.0.0-beta.219) (2023-02-27)
+
+
+### Bug Fixes
+
+* [#3773](https://github.com/ueberdosis/tiptap/issues/3773) - Array for content breaks editor ([#3786](https://github.com/ueberdosis/tiptap/issues/3786)) ([89cc59a](https://github.com/ueberdosis/tiptap/commit/89cc59a8372467feee7c70948d4395b95b13ed55))
+* **core:** allow insertContentAt and insertContent text node arrays ([#3790](https://github.com/ueberdosis/tiptap/issues/3790)) ([0300630](https://github.com/ueberdosis/tiptap/commit/0300630a5b04b61d4eef8155f24ca0ef2d683966))
+* move y-prosemirror to peer-deps ([#3763](https://github.com/ueberdosis/tiptap/issues/3763)) ([8bf8fd2](https://github.com/ueberdosis/tiptap/commit/8bf8fd245235e22a904a38b956f3f4902649dd23))
+* **react:** reset initialized when editorcontent is unmounting ([#3781](https://github.com/ueberdosis/tiptap/issues/3781)) ([38b7e41](https://github.com/ueberdosis/tiptap/commit/38b7e412bbcc1e36031bc6ec5b73bc46b1c9edea))
+* update typings for node view decorations ([#3783](https://github.com/ueberdosis/tiptap/issues/3783)) ([f869507](https://github.com/ueberdosis/tiptap/commit/f8695073968c5c6865ad8faf05351020abb2a3cc))
+
+
+### Features
+
+* [#3540](https://github.com/ueberdosis/tiptap/issues/3540) Ability to preserve marks on lists ([#3541](https://github.com/ueberdosis/tiptap/issues/3541)) ([36bb1e1](https://github.com/ueberdosis/tiptap/commit/36bb1e1041f91da6437272e7196702df868eae0f))
+
+
+
+
+
+# [2.0.0-beta.218](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.217...v2.0.0-beta.218) (2023-02-18)
+
+
+### Bug Fixes
+
+* **extension-link:** Click handler opens selected link instead of clicked link ([#3732](https://github.com/ueberdosis/tiptap/issues/3732)) ([6997bca](https://github.com/ueberdosis/tiptap/commit/6997bcad6b60f78122c605656500c63c96ea2faa))
+* Prevent drag event from being ignored ([#3677](https://github.com/ueberdosis/tiptap/issues/3677)) ([2b6e4e3](https://github.com/ueberdosis/tiptap/commit/2b6e4e369130466387ab1136e10ad64f6e37df5b))
+* **typography:** dont create fractions in the middle of a string ([#3762](https://github.com/ueberdosis/tiptap/issues/3762)) ([7ad54ea](https://github.com/ueberdosis/tiptap/commit/7ad54ea86a265c07bc94606cfd4724a00befaf3f))
+
+
+
+
+
+# [2.0.0-beta.217](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.216...v2.0.0-beta.217) (2023-02-09)
+
+
+### Bug Fixes
+
+* **bubble-menu:** exclude lodash/debounce from externals ([516f28f](https://github.com/ueberdosis/tiptap/commit/516f28f788651b88a03136220334b6dd0f8b235f))
+
+
+
+
+
+# [2.0.0-beta.216](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.215...v2.0.0-beta.216) (2023-02-08)
+
+
+### Bug Fixes
+
+* **bubble-menu:** fix lodash import ([06a3d63](https://github.com/ueberdosis/tiptap/commit/06a3d6300d9debcd4cfc70f5717cfaf9ae988a3c))
+
+
+
+
+
+# [2.0.0-beta.215](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.214...v2.0.0-beta.215) (2023-02-08)
+
+
+### Bug Fixes
+
+* fix builds including prosemirror ([a380ec4](https://github.com/ueberdosis/tiptap/commit/a380ec41d198ebacc80cea9e79b0a8aa3092618a))
+
+
+
+
+
+# [2.0.0-beta.214](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.213...v2.0.0-beta.214) (2023-02-08)
+
+
+### Bug Fixes
+
+* **bubble-menu:** move from lodash-es back to lodash, use named import ([e958128](https://github.com/ueberdosis/tiptap/commit/e9581283af8f491926a338fb572c69700861dd84))
+
+
+
+
+
+# [2.0.0-beta.213](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.212...v2.0.0-beta.213) (2023-02-07)
+
+
+### Bug Fixes
+
+* **bubble-menu:** change lodash to lodash-es for esbuild ([2d7661c](https://github.com/ueberdosis/tiptap/commit/2d7661c910a76f1d362728a48a3c3a09236a2b00))
+
+
+
+
+
 # [2.0.0-beta.212](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.211...v2.0.0-beta.212) (2023-02-03)
 
 

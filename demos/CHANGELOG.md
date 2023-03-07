@@ -3,6 +3,82 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.220](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.219...v2.0.0-beta.220) (2023-02-28)
+
+
+### Bug Fixes
+
+* **core:**  fix destroyed view causing errors on dispatchTransaction ([#3799](https://github.com/ueberdosis/tiptap/issues/3799)) ([3c07ca0](https://github.com/ueberdosis/tiptap/commit/3c07ca0b9c48cef60d56acdd44812e20e05fc928))
+* **tests:** fix tests for lists ([02eec8a](https://github.com/ueberdosis/tiptap/commit/02eec8aaefc2709dc20f91c3c8f9eca84cddc12d))
+
+
+
+
+
+# [2.0.0-beta.219](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.218...v2.0.0-beta.219) (2023-02-27)
+
+
+### Bug Fixes
+
+* **core:** allow insertContentAt and insertContent text node arrays ([#3790](https://github.com/ueberdosis/tiptap/issues/3790)) ([0300630](https://github.com/ueberdosis/tiptap/commit/0300630a5b04b61d4eef8155f24ca0ef2d683966))
+
+
+### Features
+
+* [#3540](https://github.com/ueberdosis/tiptap/issues/3540) Ability to preserve marks on lists ([#3541](https://github.com/ueberdosis/tiptap/issues/3541)) ([36bb1e1](https://github.com/ueberdosis/tiptap/commit/36bb1e1041f91da6437272e7196702df868eae0f))
+
+
+
+
+
+# [2.0.0-beta.218](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.217...v2.0.0-beta.218) (2023-02-18)
+
+**Note:** Version bump only for package tiptap-demos
+
+
+
+
+
+# [2.0.0-beta.217](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.216...v2.0.0-beta.217) (2023-02-09)
+
+**Note:** Version bump only for package tiptap-demos
+
+
+
+
+
+# [2.0.0-beta.216](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.215...v2.0.0-beta.216) (2023-02-08)
+
+**Note:** Version bump only for package tiptap-demos
+
+
+
+
+
+# [2.0.0-beta.215](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.214...v2.0.0-beta.215) (2023-02-08)
+
+**Note:** Version bump only for package tiptap-demos
+
+
+
+
+
+# [2.0.0-beta.214](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.213...v2.0.0-beta.214) (2023-02-08)
+
+**Note:** Version bump only for package tiptap-demos
+
+
+
+
+
+# [2.0.0-beta.213](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.212...v2.0.0-beta.213) (2023-02-07)
+
+**Note:** Version bump only for package tiptap-demos
+
+
+
+
+
 # [2.0.0-beta.212](https://github.com/ueberdosis/tiptap/compare/v2.0.0-beta.211...v2.0.0-beta.212) (2023-02-03)
 
 **Note:** Version bump only for package tiptap-demos
